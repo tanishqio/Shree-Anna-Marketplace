@@ -1,0 +1,76 @@
+# Render Blueprint for Shree Anna Marketplace
+# This file defines the infrastructure for deploying both frontend and backend
+
+services:
+  # ============================================
+  # BACKEND - Python FastAPI
+  # ============================================
+  - type: web
+    name: shree-anna-backend
+    runtime: python
+    region: oregon  # Choose: oregon, ohio, frankfurt, singapore
+    plan: free  # Options: free, starter, standard, pro
+    branch: main
+    rootDir: backend-python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false  # Set manually in Render dashboard
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: PAYLOAD_SALT
+        generateValue: true
+      - key: SERVER_SIGNING_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"  # Update with your frontend URL after deployment
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+
+  # ============================================
+  # FRONTEND - Next.js
+  # ============================================
+  - type: web
+    name: shree-anna-frontend
+    runtime: node
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: rm -f package-lock.json && npm install && npm run build
+    startCommand: npm run start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: shree-anna-backend
+          property: host
+      - key: NEXT_PUBLIC_API_VERSION
+        value: v1
+      - key: NEXT_PUBLIC_DEV_MODE
+        value: "false"
+
+# ============================================
+# DATABASE (Optional - if not using Supabase)
+# ============================================
+# databases:
+#   - name: shree-anna-db
+#     plan: free
+#     databaseName: shreeanna
+#     user: shreeanna_user

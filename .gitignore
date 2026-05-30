@@ -1,0 +1,167 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# =============================================================================
+# Dependencies
+# =============================================================================
+/backend/node_modules
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# =============================================================================
+# Testing & Coverage
+# =============================================================================
+/coverage
+*.lcov
+
+# =============================================================================
+# Next.js
+# =============================================================================
+/.next/
+/out/
+
+# =============================================================================
+# Production Build
+# =============================================================================
+/build
+/backend/dist
+/dist
+
+# =============================================================================
+# Environment Files
+# =============================================================================
+.env.local
+.env*.local
+# =============================================================================
+# IDE & Editors
+# =============================================================================
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+*.swp
+*.swo
+*.sublime-*
+
+# =============================================================================
+# OS Files
+# =============================================================================
+.DS_Store
+Thumbs.db
+*.pem
+
+# =============================================================================
+# Debug & Logs
+# =============================================================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+logs/
+*.log
+
+# =============================================================================
+# Vercel
+# =============================================================================
+.vercel
+
+# =============================================================================
+# TypeScript
+# =============================================================================
+*.tsbuildinfo
+# Keep next-env.d.ts as it's auto-generated but useful
+
+# =============================================================================
+# Database Files
+# =============================================================================
+*.db
+*.sqlite
+*.sqlite3
+/backend/prisma/*.db
+/backend/prisma/*.db-journal
+/backend/data/*.db
+/data/*.db
+
+# =============================================================================
+# JSON Data Storage
+# =============================================================================
+/backend/data/*.json
+!/backend/data/.gitkeep
+/data/*.json
+!/data/.gitkeep
+
+# =============================================================================
+# Prisma
+# =============================================================================
+/backend/prisma/migrations/**/migration_lock.toml
+
+# =============================================================================
+# Python Backend
+# =============================================================================
+
+# Virtual environment
+/backend-python/venv/
+/backend-python/.venv/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Python distribution/packaging
+/backend-python/dist/
+/backend-python/build/
+/backend-python/*.egg-info/
+*.egg
+
+# Python testing
+/backend-python/.pytest_cache/
+/backend-python/.coverage
+/backend-python/htmlcov/
+.pytest_cache/
+
+# Python type checking
+/backend-python/.mypy_cache/
+.mypy_cache/
+
+# Python environment
+/backend-python/.env
+/backend-python/*.db
+/backend-python/*.sqlite
+/backend-python/*.sqlite3
+
+# Python uploads
+/backend-python/uploads/*
+!/backend-python/uploads/.gitkeep
+
+# Python logs
+/backend-python/logs/*
+!/backend-python/logs/.gitkeep
+
+# Python data
+/backend-python/data/*
+!/backend-python/data/.gitkeep
+TASKS.md
+
+# Google Cloud / Firebase service account credentials
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!components.json
+!jest.config.json
+
+# Local test scripts at root
+test_developer_api.py
+
+# Runtime data files (recreated by backend at startup)
+/data/

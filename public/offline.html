@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16a34a">
+  <title>Offline - Shree Anna</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: white;
+    }
+    
+    .container {
+      text-align: center;
+      max-width: 400px;
+    }
+    
+    .icon {
+      font-size: 80px;
+      margin-bottom: 24px;
+    }
+    
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    
+    .hindi {
+      font-size: 24px;
+      opacity: 0.9;
+      margin-bottom: 24px;
+    }
+    
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 32px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #16a34a;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .features {
+      margin-top: 48px;
+      display: grid;
+      gap: 16px;
+    }
+    
+    .feature {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 16px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+    
+    .feature-icon {
+      font-size: 24px;
+    }
+    
+    .feature-text {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">📡</div>
+    <h1>You're Offline</h1>
+    <div class="hindi">आप ऑफ़लाइन हैं</div>
+    <p>
+      Don't worry! Your data is safe. When you're back online, 
+      everything will sync automatically.
+    </p>
+    <button class="btn" onclick="location.reload()">
+      Try Again / पुनः प्रयास करें
+    </button>
+    
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">💾</span>
+        <span class="feature-text">Your listings are saved locally</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🔄</span>
+        <span class="feature-text">Auto-sync when back online</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">✅</span>
+        <span class="feature-text">No data will be lost</span>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Check if back online
+    window.addEventListener('online', () => {
+      location.reload();
+    });
+  </script>
+</body>
+</html>
