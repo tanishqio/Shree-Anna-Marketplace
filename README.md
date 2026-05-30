@@ -1,4 +1,4 @@
-# 🌾 Shree Anna — Millet Marketplace
+# 🌾 Shree Anna (Millet Marketplace)
 
 <div align="center">
 
